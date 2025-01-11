@@ -40,7 +40,7 @@
       margin-left: 20px;
       margin-right: 20px;
       text-align: center;
-      z-index: 1; /* Set a lower z-index */
+      z-index: 1;
     }
 
     .VSH img {
@@ -77,9 +77,15 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
-      padding: 20px;
+      padding: 10px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 40px auto;
+      border: 2px solid #ddd;
+      border-radius: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 0; /* Ensure this stays below gallery-wrapper */
+      margin-left: 20px;
+      margin-right: 20px;
     }
 
     .dataprivacy {
@@ -87,7 +93,7 @@
       background-color: white;
       border-radius: 10px;
       box-shadow: 0px 4px 10px rgba(0, 0, 128, 0.6);
-  
+      height: 600px;
     }
 
     .dataprivacy h2 {
@@ -100,18 +106,17 @@
       font-size: 15px;
       color: darkblue;
       text-align: justify;
-      line-height: 2.0;
+      line-height: 1.5;
       padding: 10px;
     }
 
-    iframe{
+    iframe {
       width: 100%;
       height: 600px;
-      border: 100px;
+      border: 0;
       border-radius: 10px;
       box-shadow: 0px 4px 10px rgba(0, 0, 128, 0.3);
     }
-
 
     @media (min-width: 768px) {
       .container {
@@ -122,7 +127,7 @@
         margin-top: 0;
       }
 
-      iframe{
+      iframe {
         height: 600px;
       }
 
@@ -135,7 +140,7 @@
     @media (max-width: 480px) {
       button {
         font-size: 12px;
-        width: 120px;
+        width: 60px;
         padding: 8px 12px;
       }
 
@@ -144,9 +149,90 @@
         right: 5px;
       }
 
-      iframe{
+      iframe {
         height: 600px;
       }
+    }
+
+    .gallery-wrapper {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      z-index: 2; /* Set a higher z-index to ensure it stays on top */
+    }
+
+    .gallery-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px 0;
+      gap: 10px;
+      scroll-behavior: smooth;
+      width: 100%;
+    }
+
+    .gallery-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .gallery-container::-webkit-scrollbar-thumb {
+      background: white;
+      border-radius: 4px;
+    }
+
+    .gallery-container::-webkit-scrollbar-track {
+      background: white;
+    }
+
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 170px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .scroll-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.6); /* White background with less transparency */
+      color: darkblue;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 5px 5px;
+      border-radius: 8%;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .scroll-button.left {
+      left: 5px;
+    }
+
+    .scroll-button.right {
+      right: 5px;
+    }
+
+    .scroll-button:hover {
+      background-color: violet;
+      transform: translateY(-50%) scale(1.1);
     }
   </style>
 </head>
@@ -161,7 +247,52 @@
       <button onclick="location.href='#application-submission'"><h3>Apply Now</h3></button>
     </div>
     <img src="VSH.webp" alt="VSH">
+  </div>
 
+  <div class="gallery-wrapper">
+    <button class="scroll-button left" onclick="scrollGallery(-200)">⟵</button>
+    <div class="gallery-container" id="gallery">
+      <div class="gallery-item">
+        <img src="pni-singapore.webp" alt="Image 1">
+      </div>
+      <div class="gallery-item">
+        <img src="pni-singapore-activity1.webp" alt="Image 2">
+      </div>
+      <div class="gallery-item">
+        <img src="pni-singapore-activity2.webp" alt="Image 3">
+      </div>
+      <div class="gallery-item">
+        <img src="pni-singapore-activity3.webp" alt="Image 4">
+      </div>
+      <div class="gallery-item">
+        <img src="a.webp" alt="Image 5">
+      </div>
+      <div class="gallery-item">
+        <img src="b.webp" alt="Image 6">
+      </div>
+      <div class="gallery-item">
+        <img src="c.webp" alt="Image 7">
+      </div>
+      <div class="gallery-item">
+        <img src="d.webp" alt="Image 8">
+      </div>
+      <div class="gallery-item">
+        <img src="e.webp" alt="Image 9">
+      </div>
+      <div class="gallery-item">
+        <img src="f.webp" alt="Image 10">
+      </div>
+      <div class="gallery-item">
+        <img src="g.webp" alt="Image 11">
+      </div>
+      <div class="gallery-item">
+        <img src="h.webp" alt="Image 12">
+      </div>
+      <div class="gallery-item">
+        <img src="i.webp" alt="Image 13">
+      </div>
+    </div>
+    <button class="scroll-button right" onclick="scrollGallery(200)">⟶</button>
   </div>
 
   <div class="container">
@@ -186,6 +317,13 @@
       <iframe src="https://form.jotform.com/250068355013045"></iframe>
     </div>
   </div>
+
+  <script>
+    function scrollGallery(offset) {
+      const gallery = document.getElementById('gallery');
+      gallery.scrollBy({ left: offset, behavior: 'smooth' });
+    }
+  </script>
 </body>
 
 </html>
