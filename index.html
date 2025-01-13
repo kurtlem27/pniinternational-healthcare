@@ -31,14 +31,8 @@
 
     .VSH {
       position: relative;
-      margin-top: -30px;
-      border: 2px solid #ddd;
-      border-radius: 20px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 128, 0.6);
+      margin-top: -10px;
       overflow: hidden;
-      padding: 10px;
-      margin-left: 10px;
-      margin-right: 10px;
       text-align: center;
       z-index: 10;
     }
@@ -48,11 +42,24 @@
       height: auto;
     }
 
+    #hiring {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin:0%;
+    }
+
+    #hiring img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+    }
+
     .button {
       position: absolute;
       top: 10px;
-      right: 10px;
-      z-index: 100;
+      right: 20px; /* Adjusted for proper right alignment */
+      z-index: 10;
     }
 
     button {
@@ -80,13 +87,10 @@
       padding: 10px;
       max-width: 1200px;
       margin: 40px auto;
-      z-index: 0; /* Ensure this stays below gallery-wrapper */
-      margin:auto;
-      
     }
 
     .dataprivacy {
-      margin-top:0%;
+      margin-top: 0%;
       padding: 20px;
       background-color: white;
       border-radius: 10px;
@@ -96,14 +100,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: auto;
-    
     }
 
     .dataprivacy h2 {
       text-align: center;
       color: darkblue;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
     }
 
     .dataprivacy p {
@@ -120,20 +122,30 @@
       border: 0;
       border-radius: 10px;
       box-shadow: 0px 4px 10px rgba(0, 0, 128, 0.3);
-      margin: auto;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     @media (min-width: 768px) {
       .container {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .dataprivacy {
-        margin-top: 0;
-      }
-
-      iframe {
-        height: 600px;
       }
 
       button {
@@ -145,17 +157,13 @@
     @media (max-width: 480px) {
       button {
         font-size: 12px;
-        width: 60px;
+        width: 100px;
         padding: 8px 12px;
       }
 
       .button {
         top: 10px;
-        right: 5px;
-      }
-
-      iframe {
-        height: 600px;
+        right: 10px;
       }
     }
 
@@ -166,7 +174,6 @@
       margin: 20px auto;
       display: flex;
       align-items: center;
-      z-index: 2; /* Set a higher z-index to ensure it stays on top */
     }
 
     .gallery-container {
@@ -215,16 +222,14 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.6); /* White background with less transparency */
+      background: rgba(255, 255, 255, 0.6);
       color: darkblue;
       border: none;
       font-size: 24px;
       cursor: pointer;
-      padding: 5px 5px;
+      padding: 5px;
       border-radius: 8%;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-      z-index: 10;
-      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .scroll-button.left {
@@ -237,7 +242,25 @@
 
     .scroll-button:hover {
       background-color: violet;
-      transform: translateY(-50%) scale(1.1);
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -253,7 +276,6 @@
     </div>
     <img src="VSH.webp" alt="VSH">
   </div>
-
   <div class="gallery-wrapper">
     <button class="scroll-button left" onclick="scrollGallery(-200)">⟵</button>
     <div class="gallery-container" id="gallery">
@@ -300,6 +322,10 @@
     <button class="scroll-button right" onclick="scrollGallery(200)">⟶</button>
   </div>
 
+  <div id="hiring">
+    <img src="hiring.webp" alt="hiring">
+  </div>
+
   <div class="container">
     <div class="dataprivacy">
       <h2>Data Privacy</h2>
@@ -317,11 +343,14 @@
         I confirm that all information provided is accurate and agree to the terms outlined above.
       </p>
     </div>
-
     <div id="application-submission">
       <iframe src="https://form.jotform.com/250068355013045"></iframe>
     </div>
   </div>
+  
+  <footer>
+    <p>Visit our website <a href="https://www.pniinternationalcorp.com" target="_blank">www.pniinternationalcorp.com</a> to know more about us!</p>
+  </footer>
 
   <script>
     function scrollGallery(offset) {
